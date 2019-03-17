@@ -12,20 +12,23 @@ public class INIT {
 		//"C:\\testy\chromedriver.exe"
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\testy\\chromedriver.exe");
-	
-		driver = new ChromeDriver();
-		driver.get("http://www.newtours.demoaut.com/");
-		return driver; 
-		
-		
+		if(driver == null) {
+			driver = new ChromeDriver();
+			driver.get("http://newtours.demoaut.com/");
+			return driver; 
+		}else {
+			return driver; 
+		}
 	}
+	
 	public static void log(String msg) {
-		System.out.println("---" + msg + "---");
+		System.out.println("---" + msg + "---");           //logger
 	}
 	
 	public static void close() {
 		
 		driver.close();
+		driver = null;
 	}
 	public static void sleep(int seconds) {
 		try {

@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+@Ignore
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MenuTest {
 
@@ -22,7 +23,6 @@ public class MenuTest {
 		driver.findElement(By.xpath(xpath)).click();
 		
 	}
-	
 	public void selectByValue (String nazwa, String value) {
 		INIT.log("Klikam w select: " + nazwa);
 		
@@ -41,11 +41,11 @@ public class MenuTest {
 	@Before
 	public void bifor() {
 		
-		//otwieramy przeglądarkę przed testem
+																//otwieramy przeglądarkę przed testem
 		
 		driver = INIT.getDriver();
 	}
-	@Test
+	@Test   													 //adnotacja którą JUnit zrozumie jako test
 	public void topMenu() {
 		
 		linkClick("CONTACT");
